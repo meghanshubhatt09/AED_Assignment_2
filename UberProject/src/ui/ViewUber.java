@@ -4,6 +4,7 @@
  */
 package ui;
 
+import io.github.pixee.security.ObjectInputFilters;
 import java.io.BufferedWriter;
 import java.io.EOFException;
 import java.io.FileNotFoundException;
@@ -89,6 +90,7 @@ public class ViewUber extends javax.swing.JPanel {
             try{
             FileInputStream file = new FileInputStream("ubercars.dat");
             ObjectInputStream input = new ObjectInputStream(file);
+            ObjectInputFilters.enableObjectFilterIfUnprotected(input);
             boolean endoffile = false;
             
             while (!endoffile){

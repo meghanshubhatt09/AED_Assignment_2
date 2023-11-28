@@ -4,6 +4,7 @@
  */
 package ui;
 
+import io.github.pixee.security.ObjectInputFilters;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.EOFException;
@@ -230,6 +231,7 @@ public class SearchUber extends javax.swing.JPanel {
             try{
             FileInputStream file = new FileInputStream("ubercars.dat");
             ObjectInputStream input = new ObjectInputStream(file);
+            ObjectInputFilters.enableObjectFilterIfUnprotected(input);
             boolean endoffile = false;
             
             while (!endoffile){

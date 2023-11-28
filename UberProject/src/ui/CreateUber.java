@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package ui;
+import io.github.pixee.security.ObjectInputFilters;
 import java.io.EOFException;
 import java.io.FileInputStream;
 import javax.swing.JOptionPane;
@@ -657,6 +658,7 @@ public class CreateUber extends javax.swing.JPanel {
         try{
             FileInputStream file = new FileInputStream("ubercars.dat");
             ObjectInputStream input = new ObjectInputStream(file);
+            ObjectInputFilters.enableObjectFilterIfUnprotected(input);
             boolean endoffile = false;
             
             while (!endoffile){
